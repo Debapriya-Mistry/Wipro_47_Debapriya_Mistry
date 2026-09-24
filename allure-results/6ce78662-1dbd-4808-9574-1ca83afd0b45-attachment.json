@@ -1,0 +1,19 @@
+{
+  "method": "PUT",
+  "url": "https://jsonplaceholder.typicode.com/users/1",
+  "headers": {
+    "User-Agent": "behave-api-framework/1.0",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "application/json",
+    "Connection": "keep-alive",
+    "Content-Type": "application/json; charset=UTF-8"
+  },
+  "params": null,
+  "body": {
+    "name": "Aarav Sharma Updated",
+    "username": "aarav_qa_v2",
+    "email": "aarav.updated@example.com",
+    "phone": "1-770-736-9999",
+    "website": "aarav-updated.example.org"
+  }
+}

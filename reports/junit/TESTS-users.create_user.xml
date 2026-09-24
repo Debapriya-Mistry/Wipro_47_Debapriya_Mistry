@@ -1,0 +1,103 @@
+<testsuite name="users.create_user.Create users through the User Management API" tests="7" errors="0" failures="0" skipped="0" time="3.265601" timestamp="2026-09-23T12:54:23.674716" hostname="LAPTOP-8SQ6QIUL"><testcase classname="users.create_user.Create users through the User Management API" name="Create a user with a complete valid payload" status="passed" time="1.0956"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @smoke @post
+  Scenario: Create a user with a complete valid payload
+    Given the API is available ... passed in 0.000s
+    Given I have a valid user payload ... passed in 0.002s
+    When I send a request to create the user ... passed in 1.093s
+    Then the response status code should be 201 ... passed in 0.000s
+    And the response should contain the field "id" ... passed in 0.000s
+    And the created user should match the payload I sent ... passed in 0.000s
+    And the response time should be within the configured SLA ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.create_user.Create users through the User Management API" name="Create a user from the stored fixture data" status="passed" time="0.347183"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @post
+  Scenario: Create a user from the stored fixture data
+    Given the API is available ... passed in 0.001s
+    Given I have the user payload from fixture "valid_user" ... passed in 0.001s
+    When I send a request to create the user ... passed in 0.345s
+    Then the response status code should be 201 ... passed in 0.000s
+    And the response field "username" should equal "aarav_qa" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.create_user.Create users through the User Management API" name="Server handles malformed create payloads -- @1.1 Bad payloads" status="passed" time="0.355216"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @post @negative
+  Scenario Outline: Server handles malformed create payloads -- @1.1 Bad payloads
+    Given the API is available ... passed in 0.000s
+    Given I have the invalid user payload "empty" ... passed in 0.000s
+    When I send a request to create the user ... passed in 0.354s
+    Then the response status code should be one of "200, 201, 400, 422" ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.create_user.Create users through the User Management API" name="Server handles malformed create payloads -- @1.2 Bad payloads" status="passed" time="0.364366"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @post @negative
+  Scenario Outline: Server handles malformed create payloads -- @1.2 Bad payloads
+    Given the API is available ... passed in 0.000s
+    Given I have the invalid user payload "missing_email" ... passed in 0.002s
+    When I send a request to create the user ... passed in 0.362s
+    Then the response status code should be one of "200, 201, 400, 422" ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.create_user.Create users through the User Management API" name="Server handles malformed create payloads -- @1.3 Bad payloads" status="passed" time="0.371921"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @post @negative
+  Scenario Outline: Server handles malformed create payloads -- @1.3 Bad payloads
+    Given the API is available ... passed in 0.000s
+    Given I have the invalid user payload "blank_name" ... passed in 0.001s
+    When I send a request to create the user ... passed in 0.371s
+    Then the response status code should be one of "200, 201, 400, 422" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.create_user.Create users through the User Management API" name="Server handles malformed create payloads -- @1.4 Bad payloads" status="passed" time="0.357311"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @post @negative
+  Scenario Outline: Server handles malformed create payloads -- @1.4 Bad payloads
+    Given the API is available ... passed in 0.001s
+    Given I have the invalid user payload "malformed_email" ... passed in 0.000s
+    When I send a request to create the user ... passed in 0.356s
+    Then the response status code should be one of "200, 201, 400, 422" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.create_user.Create users through the User Management API" name="Server handles malformed create payloads -- @1.5 Bad payloads" status="passed" time="0.374004"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @post @negative
+  Scenario Outline: Server handles malformed create payloads -- @1.5 Bad payloads
+    Given the API is available ... passed in 0.000s
+    Given I have the invalid user payload "wrong_types" ... passed in 0.000s
+    When I send a request to create the user ... passed in 0.374s
+    Then the response status code should be one of "200, 201, 400, 422" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

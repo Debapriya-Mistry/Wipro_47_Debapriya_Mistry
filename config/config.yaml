@@ -1,0 +1,26 @@
+#Central configuration
+
+default: &default
+  timeout: 30
+  verify_ssl: true
+  retries: 2
+  backoff_factor: 0.5
+  log_level: "INFO"
+  max_response_time_ms: 3000
+  auth:
+    type: "none"
+    token: "${API_TOKEN:-}"
+    username: "${API_USER:-}"
+    password: "${API_PASSWORD:-}"
+    api_key_header: "x-api-key"
+    api_key: "${API_KEY:-}"
+    token_url: ""
+    client_id: "${CLIENT_ID:-}"
+    client_secret: "${CLIENT_SECRET:-}"
+
+environments:
+
+  qa:
+    <<: *default
+    base_url: "https://jsonplaceholder.typicode.com"
+

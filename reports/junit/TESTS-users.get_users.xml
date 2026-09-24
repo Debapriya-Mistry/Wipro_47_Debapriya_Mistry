@@ -1,0 +1,133 @@
+<testsuite name="users.get_users.Retrieve users from the User Management API" tests="9" errors="0" failures="0" skipped="0" time="3.914702" timestamp="2026-09-23T12:54:28.379545" hostname="LAPTOP-8SQ6QIUL"><testcase classname="users.get_users.Retrieve users from the User Management API" name="Fetch the complete list of users" status="passed" time="0.158038"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @smoke @get
+  Scenario: Fetch the complete list of users
+    Given the API is available ... passed in 0.000s
+    When I request the list of all users ... passed in 0.156s
+    Then the response status code should be 200 ... passed in 0.000s
+    And the response content type should be JSON ... passed in 0.000s
+    And the response should match the "users_list_schema.json" schema ... passed in 0.003s
+    And the response should contain 10 users ... passed in 0.000s
+    And the response time should be within the configured SLA ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Fetch a single user by a valid id" status="passed" time="0.158163"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @smoke @get
+  Scenario: Fetch a single user by a valid id
+    Given the API is available ... passed in 0.000s
+    When I request the user with id 1 ... passed in 0.156s
+    Then the response status code should be 200 ... passed in 0.000s
+    And the response should match the "user_schema.json" schema ... passed in 0.001s
+    And the response field "id" should equal "1" ... passed in 0.000s
+    And the response field "username" should equal "Bret" ... passed in 0.000s
+    And the response field "address.geo.lat" should not be empty ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Fetch a user that does not exist" status="passed" time="0.152281"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @negative
+  Scenario: Fetch a user that does not exist
+    Given the API is available ... passed in 0.001s
+    When I request the user with id 9999 ... passed in 0.150s
+    Then the response status code should be 404 ... passed in 0.000s
+    And the response body should be empty ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Invalid user identifiers are rejected -- @1.1 Invalid identifiers" status="passed" time="0.143101"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @negative
+  Scenario Outline: Invalid user identifiers are rejected -- @1.1 Invalid identifiers
+    Given the API is available ... passed in 0.001s
+    When I request the user with id 0 ... passed in 0.142s
+    Then the response status code should be 404 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Invalid user identifiers are rejected -- @1.2 Invalid identifiers" status="passed" time="0.806223"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @negative
+  Scenario Outline: Invalid user identifiers are rejected -- @1.2 Invalid identifiers
+    Given the API is available ... passed in 0.000s
+    When I request the user with id -1 ... passed in 0.806s
+    Then the response status code should be 404 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Invalid user identifiers are rejected -- @1.3 Invalid identifiers" status="passed" time="0.772147"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @negative
+  Scenario Outline: Invalid user identifiers are rejected -- @1.3 Invalid identifiers
+    Given the API is available ... passed in 0.000s
+    When I request the user with id abc ... passed in 0.772s
+    Then the response status code should be 404 ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Filter users by a query parameter -- @1.1 Filters" status="passed" time="0.780994"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @filtering
+  Scenario Outline: Filter users by a query parameter -- @1.1 Filters
+    Given the API is available ... passed in 0.000s
+    When I search for users with "username" equal to "Bret" ... passed in 0.780s
+    Then the response status code should be 200 ... passed in 0.000s
+    And the response should contain 1 users ... passed in 0.001s
+    And the response field "0.username" should equal "Bret" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Filter users by a query parameter -- @1.2 Filters" status="passed" time="0.777542"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @filtering
+  Scenario Outline: Filter users by a query parameter -- @1.2 Filters
+    Given the API is available ... passed in 0.000s
+    When I search for users with "email" equal to "Sincere@april.biz" ... passed in 0.776s
+    Then the response status code should be 200 ... passed in 0.000s
+    And the response should contain 1 users ... passed in 0.001s
+    And the response field "0.email" should equal "Sincere@april.biz" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.get_users.Retrieve users from the User Management API" name="Filter users by a query parameter -- @1.3 Filters" status="passed" time="0.166214"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @get @filtering
+  Scenario Outline: Filter users by a query parameter -- @1.3 Filters
+    Given the API is available ... passed in 0.001s
+    When I search for users with "id" equal to "3" ... passed in 0.164s
+    Then the response status code should be 200 ... passed in 0.001s
+    And the response should contain 1 users ... passed in 0.000s
+    And the response field "0.id" should equal "3" ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

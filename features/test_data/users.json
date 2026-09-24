@@ -1,0 +1,33 @@
+{
+  "valid_user": {
+    "name": "Aarav Sharma",
+    "username": "aarav_qa",
+    "email": "aarav.sharma@example.com",
+    "phone": "1-770-736-8031 x56442",
+    "website": "aarav.example.org",
+    "address": {
+      "street": "MG Road",
+      "suite": "Apt. 210",
+      "city": "Bengaluru",
+      "zipcode": "560001-1234",
+      "geo": { "lat": "12.9716", "lng": "77.5946" }
+    },
+    "company": {
+      "name": "QA Labs Pvt Ltd",
+      "catchPhrase": "Automate everything",
+      "bs": "quality assurance"
+    }
+  },
+  "update_user": {
+    "name": "Aarav Sharma Updated",
+    "username": "aarav_qa_v2",
+    "email": "aarav.updated@example.com",
+    "phone": "1-770-736-9999",
+    "website": "aarav-updated.example.org"
+  },
+  "minimal_user": {
+    "name": "Minimal User",
+    "username": "minimal_user",
+    "email": "minimal@example.com"
+  }
+}

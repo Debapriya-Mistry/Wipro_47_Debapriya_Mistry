@@ -1,0 +1,19 @@
+{
+  "method": "POST",
+  "url": "https://jsonplaceholder.typicode.com/users",
+  "headers": {
+    "User-Agent": "behave-api-framework/1.0",
+    "Accept-Encoding": "gzip, deflate",
+    "Accept": "application/json",
+    "Connection": "keep-alive",
+    "Content-Type": "application/json; charset=UTF-8"
+  },
+  "params": null,
+  "body": {
+    "name": 12345,
+    "username": true,
+    "email": [
+      "a@b.com"
+    ]
+  }
+}

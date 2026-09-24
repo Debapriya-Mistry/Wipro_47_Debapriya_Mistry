@@ -1,0 +1,28 @@
+<testsuite name="users.delete_user.Delete users" tests="2" errors="0" failures="0" skipped="0" time="0.747956" timestamp="2026-09-23T12:54:24.430680" hostname="LAPTOP-8SQ6QIUL"><testcase classname="users.delete_user.Delete users" name="Delete an existing user" status="passed" time="0.373926"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @smoke @delete
+  Scenario: Delete an existing user
+    Given the API is available ... passed in 0.001s
+    When I send a request to delete the user with id 1 ... passed in 0.371s
+    Then the response status code should be 200 ... passed in 0.001s
+    And the response time should be within the configured SLA ... passed in 0.000s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase><testcase classname="users.delete_user.Delete users" name="Deleting a non-existent user" status="passed" time="0.37403"><system-out>
+<![CDATA[
+@scenario.begin
+
+  @delete @negative
+  Scenario: Deleting a non-existent user
+    Given the API is available ... passed in 0.000s
+    When I send a request to delete the user with id 9999 ... passed in 0.373s
+    Then the response status code should be one of "200, 204, 404" ... passed in 0.001s
+
+@scenario.end
+--------------------------------------------------------------------------------
+]]>
+</system-out></testcase></testsuite>

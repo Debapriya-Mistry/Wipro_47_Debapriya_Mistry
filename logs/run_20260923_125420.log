@@ -1,0 +1,155 @@
+12:54:20 | INFO     | api_framework.environment | ==============================================================================
+12:54:20 | INFO     | api_framework.environment | Starting test run | env=qa | base_url=https://jsonplaceholder.typicode.com
+12:54:20 | INFO     | api_framework.environment | Log file: D:\PyCharm\FinalWiproAPItesting\logs\run_20260923_125420.log
+12:54:20 | INFO     | api_framework.environment | ==============================================================================
+12:54:20 | INFO     | api_framework.environment | FEATURE: Create users through the User Management API
+12:54:20 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:20 | INFO     | api_framework.environment | SCENARIO: Create a user with a complete valid payload ['smoke', 'post']
+12:54:20 | INFO     | api_framework.UsersAPI | Creating user: jose_nx8ycr
+12:54:20 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:21 | INFO     | api_framework.api-client | <-- 201 Created (1077 ms)
+12:54:21 | INFO     | api_framework.environment | RESULT: Create a user with a complete valid payload -> PASSED
+12:54:21 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:21 | INFO     | api_framework.environment | SCENARIO: Create a user from the stored fixture data ['post']
+12:54:21 | INFO     | api_framework.UsersAPI | Creating user: aarav_qa
+12:54:21 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:21 | INFO     | api_framework.api-client | <-- 201 Created (342 ms)
+12:54:21 | INFO     | api_framework.environment | RESULT: Create a user from the stored fixture data -> PASSED
+12:54:21 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:21 | INFO     | api_framework.environment | SCENARIO: Server handles malformed create payloads -- @1.1 Bad payloads ['post', 'negative']
+12:54:21 | INFO     | api_framework.UsersAPI | Creating user: {}
+12:54:21 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:22 | INFO     | api_framework.api-client | <-- 201 Created (350 ms)
+12:54:22 | INFO     | api_framework.environment | RESULT: Server handles malformed create payloads -- @1.1 Bad payloads -> PASSED
+12:54:22 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:22 | INFO     | api_framework.environment | SCENARIO: Server handles malformed create payloads -- @1.2 Bad payloads ['post', 'negative']
+12:54:22 | INFO     | api_framework.UsersAPI | Creating user: no_email
+12:54:22 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:22 | INFO     | api_framework.api-client | <-- 201 Created (348 ms)
+12:54:22 | INFO     | api_framework.environment | RESULT: Server handles malformed create payloads -- @1.2 Bad payloads -> PASSED
+12:54:22 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:22 | INFO     | api_framework.environment | SCENARIO: Server handles malformed create payloads -- @1.3 Bad payloads ['post', 'negative']
+12:54:22 | INFO     | api_framework.UsersAPI | Creating user: blank
+12:54:22 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:22 | INFO     | api_framework.api-client | <-- 201 Created (355 ms)
+12:54:22 | INFO     | api_framework.environment | RESULT: Server handles malformed create payloads -- @1.3 Bad payloads -> PASSED
+12:54:22 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:22 | INFO     | api_framework.environment | SCENARIO: Server handles malformed create payloads -- @1.4 Bad payloads ['post', 'negative']
+12:54:22 | INFO     | api_framework.UsersAPI | Creating user: bad
+12:54:22 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:23 | INFO     | api_framework.api-client | <-- 201 Created (353 ms)
+12:54:23 | INFO     | api_framework.environment | RESULT: Server handles malformed create payloads -- @1.4 Bad payloads -> PASSED
+12:54:23 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:23 | INFO     | api_framework.environment | SCENARIO: Server handles malformed create payloads -- @1.5 Bad payloads ['post', 'negative']
+12:54:23 | INFO     | api_framework.UsersAPI | Creating user: True
+12:54:23 | INFO     | api_framework.api-client | --> POST https://jsonplaceholder.typicode.com/users
+12:54:23 | INFO     | api_framework.api-client | <-- 201 Created (370 ms)
+12:54:23 | INFO     | api_framework.environment | RESULT: Server handles malformed create payloads -- @1.5 Bad payloads -> PASSED
+12:54:23 | INFO     | api_framework.environment | FEATURE: Delete users
+12:54:23 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:23 | INFO     | api_framework.environment | SCENARIO: Delete an existing user ['smoke', 'delete']
+12:54:23 | INFO     | api_framework.UsersAPI | Deleting user id=1
+12:54:23 | INFO     | api_framework.api-client | --> DELETE https://jsonplaceholder.typicode.com/users/1
+12:54:24 | INFO     | api_framework.api-client | <-- 200 OK (355 ms)
+12:54:24 | INFO     | api_framework.environment | RESULT: Delete an existing user -> PASSED
+12:54:24 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:24 | INFO     | api_framework.environment | SCENARIO: Deleting a non-existent user ['delete', 'negative']
+12:54:24 | INFO     | api_framework.UsersAPI | Deleting user id=9999
+12:54:24 | INFO     | api_framework.api-client | --> DELETE https://jsonplaceholder.typicode.com/users/9999
+12:54:24 | INFO     | api_framework.api-client | <-- 200 OK (357 ms)
+12:54:24 | INFO     | api_framework.environment | RESULT: Deleting a non-existent user -> PASSED
+12:54:24 | INFO     | api_framework.environment | FEATURE: Retrieve users from the User Management API
+12:54:24 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:24 | INFO     | api_framework.environment | SCENARIO: Fetch the complete list of users ['smoke', 'get']
+12:54:24 | INFO     | api_framework.UsersAPI | Fetching all users (params=None)
+12:54:24 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users
+12:54:24 | INFO     | api_framework.api-client | <-- 200 OK (152 ms)
+12:54:24 | INFO     | api_framework.schema   | Schema 'users_list_schema.json' validated successfully
+12:54:24 | INFO     | api_framework.environment | RESULT: Fetch the complete list of users -> PASSED
+12:54:24 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:24 | INFO     | api_framework.environment | SCENARIO: Fetch a single user by a valid id ['smoke', 'get']
+12:54:24 | INFO     | api_framework.UsersAPI | Fetching user_id=1
+12:54:24 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users/1
+12:54:24 | INFO     | api_framework.api-client | <-- 200 OK (152 ms)
+12:54:24 | INFO     | api_framework.schema   | Schema 'user_schema.json' validated successfully
+12:54:24 | INFO     | api_framework.environment | RESULT: Fetch a single user by a valid id -> PASSED
+12:54:24 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:24 | INFO     | api_framework.environment | SCENARIO: Fetch a user that does not exist ['get', 'negative']
+12:54:24 | INFO     | api_framework.UsersAPI | Fetching user_id=9999
+12:54:24 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users/9999
+12:54:24 | INFO     | api_framework.api-client | <-- 404 Not Found (147 ms)
+12:54:24 | INFO     | api_framework.environment | RESULT: Fetch a user that does not exist -> PASSED
+12:54:24 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:24 | INFO     | api_framework.environment | SCENARIO: Invalid user identifiers are rejected -- @1.1 Invalid identifiers ['get', 'negative']
+12:54:24 | INFO     | api_framework.UsersAPI | Fetching user_id=0
+12:54:24 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users/0
+12:54:25 | INFO     | api_framework.api-client | <-- 404 Not Found (139 ms)
+12:54:25 | INFO     | api_framework.environment | RESULT: Invalid user identifiers are rejected -- @1.1 Invalid identifiers -> PASSED
+12:54:25 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:25 | INFO     | api_framework.environment | SCENARIO: Invalid user identifiers are rejected -- @1.2 Invalid identifiers ['get', 'negative']
+12:54:25 | INFO     | api_framework.UsersAPI | Fetching user_id=-1
+12:54:25 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users/-1
+12:54:25 | INFO     | api_framework.api-client | <-- 404 Not Found (803 ms)
+12:54:25 | INFO     | api_framework.environment | RESULT: Invalid user identifiers are rejected -- @1.2 Invalid identifiers -> PASSED
+12:54:25 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:25 | INFO     | api_framework.environment | SCENARIO: Invalid user identifiers are rejected -- @1.3 Invalid identifiers ['get', 'negative']
+12:54:25 | INFO     | api_framework.UsersAPI | Fetching user_id=abc
+12:54:25 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users/abc
+12:54:26 | INFO     | api_framework.api-client | <-- 404 Not Found (755 ms)
+12:54:26 | INFO     | api_framework.environment | RESULT: Invalid user identifiers are rejected -- @1.3 Invalid identifiers -> PASSED
+12:54:26 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:26 | INFO     | api_framework.environment | SCENARIO: Filter users by a query parameter -- @1.1 Filters ['get', 'filtering']
+12:54:26 | INFO     | api_framework.UsersAPI | Searching users with {'username': 'Bret'}
+12:54:26 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users
+12:54:27 | INFO     | api_framework.api-client | <-- 200 OK (776 ms)
+12:54:27 | INFO     | api_framework.environment | RESULT: Filter users by a query parameter -- @1.1 Filters -> PASSED
+12:54:27 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:27 | INFO     | api_framework.environment | SCENARIO: Filter users by a query parameter -- @1.2 Filters ['get', 'filtering']
+12:54:27 | INFO     | api_framework.UsersAPI | Searching users with {'email': 'Sincere@april.biz'}
+12:54:27 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users
+12:54:28 | INFO     | api_framework.api-client | <-- 200 OK (774 ms)
+12:54:28 | INFO     | api_framework.environment | RESULT: Filter users by a query parameter -- @1.2 Filters -> PASSED
+12:54:28 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:28 | INFO     | api_framework.environment | SCENARIO: Filter users by a query parameter -- @1.3 Filters ['get', 'filtering']
+12:54:28 | INFO     | api_framework.UsersAPI | Searching users with {'id': '3'}
+12:54:28 | INFO     | api_framework.api-client | --> GET https://jsonplaceholder.typicode.com/users
+12:54:28 | INFO     | api_framework.api-client | <-- 200 OK (161 ms)
+12:54:28 | INFO     | api_framework.environment | RESULT: Filter users by a query parameter -- @1.3 Filters -> PASSED
+12:54:28 | INFO     | api_framework.environment | FEATURE: Update existing users
+12:54:28 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:28 | INFO     | api_framework.environment | SCENARIO: Fully replace a user with PUT ['smoke', 'put']
+12:54:28 | INFO     | api_framework.UsersAPI | Replacing user id=1
+12:54:28 | INFO     | api_framework.api-client | --> PUT https://jsonplaceholder.typicode.com/users/1
+12:54:29 | INFO     | api_framework.api-client | <-- 200 OK (790 ms)
+12:54:29 | INFO     | api_framework.environment | RESULT: Fully replace a user with PUT -> PASSED
+12:54:29 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:29 | INFO     | api_framework.environment | SCENARIO: Partially update a single field with PATCH -- @1.1 Fields ['patch']
+12:54:29 | INFO     | api_framework.UsersAPI | Patching user id=1 with {'name': 'Patched Name'}
+12:54:29 | INFO     | api_framework.api-client | --> PATCH https://jsonplaceholder.typicode.com/users/1
+12:54:29 | INFO     | api_framework.api-client | <-- 200 OK (369 ms)
+12:54:29 | INFO     | api_framework.environment | RESULT: Partially update a single field with PATCH -- @1.1 Fields -> PASSED
+12:54:29 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:29 | INFO     | api_framework.environment | SCENARIO: Partially update a single field with PATCH -- @1.2 Fields ['patch']
+12:54:29 | INFO     | api_framework.UsersAPI | Patching user id=1 with {'email': 'patched@example.com'}
+12:54:29 | INFO     | api_framework.api-client | --> PATCH https://jsonplaceholder.typicode.com/users/1
+12:54:29 | INFO     | api_framework.api-client | <-- 200 OK (346 ms)
+12:54:29 | INFO     | api_framework.environment | RESULT: Partially update a single field with PATCH -- @1.2 Fields -> PASSED
+12:54:29 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:29 | INFO     | api_framework.environment | SCENARIO: Partially update a single field with PATCH -- @1.3 Fields ['patch']
+12:54:29 | INFO     | api_framework.UsersAPI | Patching user id=1 with {'phone': '1-999-888-7777'}
+12:54:29 | INFO     | api_framework.api-client | --> PATCH https://jsonplaceholder.typicode.com/users/1
+12:54:30 | INFO     | api_framework.api-client | <-- 200 OK (342 ms)
+12:54:30 | INFO     | api_framework.environment | RESULT: Partially update a single field with PATCH -- @1.3 Fields -> PASSED
+12:54:30 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:30 | INFO     | api_framework.environment | SCENARIO: Partially update a single field with PATCH -- @1.4 Fields ['patch']
+12:54:30 | INFO     | api_framework.UsersAPI | Patching user id=1 with {'website': 'patched.example.org'}
+12:54:30 | INFO     | api_framework.api-client | --> PATCH https://jsonplaceholder.typicode.com/users/1
+12:54:30 | INFO     | api_framework.api-client | <-- 200 OK (355 ms)
+12:54:30 | INFO     | api_framework.environment | RESULT: Partially update a single field with PATCH -- @1.4 Fields -> PASSED
+12:54:30 | INFO     | api_framework.environment | ------------------------------------------------------------------------------
+12:54:30 | INFO     | api_framework.environment | SCENARIO: Updating a non-existent user is rejected ['put', 'negative']
+12:54:30 | INFO     | api_framework.UsersAPI | Replacing user id=9999
+12:54:30 | INFO     | api_framework.api-client | --> PUT https://jsonplaceholder.typicode.com/users/9999
+12:54:33 | INFO     | api_framework.api-client | <-- 500 Internal Server Error (3034 ms)
+12:54:33 | INFO     | api_framework.environment | RESULT: Updating a non-existent user is rejected -> PASSED
+12:54:33 | INFO     | api_framework.environment | Test run finished

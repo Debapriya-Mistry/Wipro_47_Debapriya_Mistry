@@ -1,0 +1,18 @@
+#HTTP & validation
+requests==2.32.3
+urllib3==2.2.3
+jsonschema==4.23.0
+PyYAML==6.0.2
+
+# BDD
+behave==1.2.6
+parse==1.20.2
+parse-type==0.6.4
+
+#Reporting
+allure-behave==2.13.5
+allure-python-commons==2.13.5
+
+#Test data
+Faker==30.3.0
+
